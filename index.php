@@ -1,8 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "kasir");
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+include("config.php");
 
 // Query produk
 $sql = "SELECT * FROM products";

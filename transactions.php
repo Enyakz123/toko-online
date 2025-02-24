@@ -56,10 +56,7 @@ if (!isset($_SESSION['username'])) {
                     <div class="row">
                         <?php
                         // Koneksi ke database
-                        $conn = mysqli_connect("localhost", "root", "", "kasir");
-                        if (!$conn) {
-                            die("Koneksi gagal: " . mysqli_connect_error());
-                        }
+                        include("config.php");
 
                         // Query untuk mengambil data produk
                         $sql = "SELECT * FROM products";

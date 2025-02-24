@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// Koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "kasir");
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+include("config.php");
 
 // Proses login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

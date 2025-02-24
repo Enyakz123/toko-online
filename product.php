@@ -1,9 +1,5 @@
 <?php
-// Koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "kasir");
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+require 'config.php'; // Menggunakan koneksi dari config.php
 
 // Query untuk mengambil data produk
 $sql = "SELECT * FROM products";
@@ -16,19 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     $price = $_POST['price'];
     $stock = $_POST['stock'];
 
-    // Proses upload gambar
-    $imageName = $_FILES['image']['name'];
-    $imageTmpName = $_FILES['image']['tmp_name'];
-    $imagePath = "uploads/" . basename($imageName);
-
-    if (move_uploaded_file($imageTmpName, $imagePath)) {
-        $query = "INSERT INTO products (id, name, price, stock, image) VALUES ('$id', '$name', '$price', '$stock', '$imageName')";
-        mysqli_query($conn, $query);
-    }
+    $query = "INSERT INTO products (id, name, price, stock) VALUES ('$id', '$name', '$price', '$stock')";
+    mysqli_query($conn, $query);
     
     header("Location: product.php");
     exit;
 }
+
 
 
 // Proses update produk
@@ -58,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

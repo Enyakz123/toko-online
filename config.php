@@ -2,7 +2,7 @@
 $host = "localhost"; // Sesuaikan dengan konfigurasi Laragon
 $user = "root"; // Default user Laragon
 $pass = ""; // Password kosong untuk Laragon
-$dbname = "kasir"; // Ganti dengan nama database kamu
+$dbname = "mapianho_toko-online"; // Ganti dengan nama database kamu
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 
